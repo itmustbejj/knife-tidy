@@ -60,7 +60,7 @@ class Chef
 
         # Fetch list of organization names from reports directory
         begin
-          org_names = reports_files.map { |r_file| r_file.match("#{reports_dir}\/(.*)(#{report_file_suffixes.join('|')})").captures.first }.uniq
+          org_names = report_files.map { |r_file| r_file.match("#{reports_dir}\/(.*)(#{report_file_suffixes.join('|')})").captures.first }.uniq
         rescue NoMethodError
           ui.stderr.puts 'Failed to parse json reports files. Please ensure your reports are valid.'
           return
